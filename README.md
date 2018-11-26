@@ -9,6 +9,15 @@ Based on iBatis JPetStore
   $ git clone https://github.com/mbicudo/myjpetstore-docker.git
   ```
 
+- Add the tgz for Apache Tomcat and JDK of your choice, and edit Dockerfile accordingly.
+The versions that this image has been tested are:
+
+  ```
+   $ ls -1 SRC/
+   apache-tomcat-9.0.12.tar.gz
+   jdk-8u40-linux-x64.tar.gz
+  ```
+
 - Build Docker Image
 
   ```
@@ -33,10 +42,10 @@ Based on iBatis JPetStore
 JPetStore requires an external DB. By default the driver is mysql.
 
   ```
-jdbc.driverClassName=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://${MYPET_DBHOST}:${MYPET_DBPORT}/${MYPET_DATABASE}
-jdbc.username=${MYPET_USERNAME}
-jdbc.password=${MYPET_PASSWD}
+  jdbc.driverClassName=com.mysql.jdbc.Driver
+  jdbc.url=jdbc:mysql://${MYPET_DBHOST}:${MYPET_DBPORT}/${MYPET_DATABASE}
+  jdbc.username=${MYPET_USERNAME}
+  jdbc.password=${MYPET_PASSWD}
   ```
 
 See myjpetstore-mysql-docker.
