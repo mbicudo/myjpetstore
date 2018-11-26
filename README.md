@@ -39,7 +39,7 @@ The versions that this image has been tested are:
 
 - DependenciesRun Docker Image
 
-JPetStore requires an external DB. By default the driver is mysql.
+  JPetStore requires an external DB. By default the driver is mysql.
 
   ```
   jdbc.driverClassName=com.mysql.jdbc.Driver
