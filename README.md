@@ -29,6 +29,7 @@ The versions that this image has been tested are:
 
   ```
   $ docker run -p 8080:8080 \
+        --name mypetstore \
 	-e MYPET_DBHOST=db \
 	-e MYPET_DBPORT=3306 \
 	-e MYPET_DATABASE=jpetstore \
