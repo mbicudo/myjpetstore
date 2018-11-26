@@ -1,7 +1,7 @@
 MyJPetStore
 =================
 
-Based on iBatis JPetStore
+Based on centos7 & iBatis JPetStore
 
 - Clone this repository
 
