@@ -2,12 +2,11 @@ MyJPetStore
 =================
 
 Based on iBatis JPetStore
-![mybatis-jpetstore](http://mybatis.github.io/images/mybatis-logo.png)
 
 - Clone this repository
 
   ```
-  $ git clone https://github.com/mddb/myjpetstore-docker.git
+  $ git clone https://github.com/mbicudo/myjpetstore-docker.git
   ```
 
 - Build Docker Image
@@ -28,4 +27,17 @@ Based on iBatis JPetStore
 	-e MYPET_PASSWD=jpetstore \
 	myjpetstore
   ```
+
+- DependenciesRun Docker Image
+
+JPetStore requires an external DB. By default the driver is mysql.
+
+  ```
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://${MYPET_DBHOST}:${MYPET_DBPORT}/${MYPET_DATABASE}
+jdbc.username=${MYPET_USERNAME}
+jdbc.password=${MYPET_PASSWD}
+  ```
+
+See myjpetstore-mysql-docker.
 
