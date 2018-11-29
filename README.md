@@ -28,7 +28,8 @@ The versions that this image has been tested are:
 - Run Docker Image
 
   ```
-  $ docker run -p 8080:8080 \
+  $ docker run \
+        -p 8080:8080 \
         --name mypetstore \
 	-e MYPET_DBHOST=db \
 	-e MYPET_DBPORT=3306 \
@@ -40,7 +41,7 @@ The versions that this image has been tested are:
 
 - DependenciesRun Docker Image
 
-  JPetStore requires an external DB. By default the driver is mysql.
+  JPetStore requires an external DB. By default the driver is mysql. The other parameters are based on env variables as presented below.
 
   ```
   jdbc.driverClassName=com.mysql.jdbc.Driver
@@ -48,6 +49,9 @@ The versions that this image has been tested are:
   jdbc.username=${MYPET_USERNAME}
   jdbc.password=${MYPET_PASSWD}
   ```
+
+For more info on how to set up a mysql docker image and import jpetstore.sql initial db scheme.
+
 
 MyJPetStore MySQL
 =================
@@ -84,7 +88,7 @@ This is the recommended way:
 
 - Troubleshoot
 
-Exec bash to get into the container and Debug:
+If somethign goes wrong, run a bash process in the container to debug. Dont' expect much as mysql image is really minimalistic and purposely lacks of almost every command that you can think of:
 
   ```
   $ docker exec -it myjpetstore-mysql bash
