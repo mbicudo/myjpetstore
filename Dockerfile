@@ -11,8 +11,8 @@ RUN yum -y update && \
     yum clean all
 
 WORKDIR /opt
-ADD SRC/jdk-8u40-linux-x64.tar.gz .
-ADD SRC/apache-tomcat-9.0.12.tar.gz . 
+ADD deps/jdk-8u40-linux-x64.tar.gz .
+ADD deps/apache-tomcat-9.0.12.tar.gz . 
 RUN ln -s jdk1.8.0_40 java
 RUN ln -s apache-tomcat-9.0.12 tomcat
 
