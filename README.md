@@ -1,7 +1,7 @@
 MyJPetStore
 =================
 
-Based on iBatis JPetStore
+Based on centos7 & iBatis JPetStore
 
 - Clone this repository
 
@@ -28,7 +28,8 @@ The versions that this image has been tested are:
 - Run Docker Image
 
   ```
-  $docker run -p 8080:8080 \
+  $ docker run -p 8080:8080 \
+        --name mypetstore \
 	-e MYPET_DBHOST=db \
 	-e MYPET_DBPORT=3306 \
 	-e MYPET_DATABASE=jpetstore \
@@ -39,7 +40,7 @@ The versions that this image has been tested are:
 
 - DependenciesRun Docker Image
 
-JPetStore requires an external DB. By default the driver is mysql.
+  JPetStore requires an external DB. By default the driver is mysql.
 
   ```
   jdbc.driverClassName=com.mysql.jdbc.Driver
