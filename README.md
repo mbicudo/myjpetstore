@@ -1,15 +1,16 @@
-MyJPetStore
-=================
+# MyJPetStore
 
 Based on centos7 & iBatis JPetStore
 
-- Clone this repository
+## Build and Run
+
+Clone this repository
 
   ```
   $ git clone https://github.com/mbicudo/myjpetstore-docker.git
   ```
 
-- Add the tgz for Apache Tomcat and JDK of your choice, and edit Dockerfile accordingly.
+Add the tgz for Apache Tomcat and JDK of your choice, and edit Dockerfile accordingly.
 The versions that this image has been tested are:
 
   ```
@@ -18,14 +19,14 @@ The versions that this image has been tested are:
    jdk-8u40-linux-x64.tar.gz
   ```
 
-- Build Docker Image
+Build Docker Image
 
   ```
   $ cd myjpetstore-docker
   $ docker build -t myjpetstore .
   ```
 
-- Run Docker Image
+Run Docker Image
 
   ```
   $ docker run \
@@ -39,9 +40,9 @@ The versions that this image has been tested are:
 	myjpetstore
   ```
 
-- DependenciesRun Docker Image
+### Dependencies
 
-  JPetStore requires an external DB. By default the driver is mysql. The other parameters are based on env variables as presented below.
+JPetStore requires an external DB. By default the driver is mysql. See jdbc.properties below:
 
   ```
   jdbc.driverClassName=com.mysql.jdbc.Driver
@@ -50,13 +51,11 @@ The versions that this image has been tested are:
   jdbc.password=${MYPET_PASSWD}
   ```
 
+## MyJPetStore MySQL
+
 For more info on how to set up a mysql docker image and import jpetstore.sql initial db scheme.
 
-
-MyJPetStore MySQL
-=================
-
-- Run MySQL Container
+### Run MySQL Container
 
 This will run the mysqld in the container, create the database 'jpetstore, grant all the permissions for user/pwd 'jpetstore/jpetstore' and tell mysqld to store that into /var/lib/mysql/, which is mapped to the directory in the docker host '/opt/mysql-datadir. This allows you to have persistent data even if the mysql container dies.
 
@@ -72,25 +71,18 @@ This will run the mysqld in the container, create the database 'jpetstore, grant
 	mysql:5.5
   ```
 
-- Initial Setup
+### Initial Setup
 
 If this is the first time that you run your mysql docker for the JPetStore app, then you will have to create the tables.
-Two options to populate the db. The first uses the entrypoint directory, which I havent tested. So good look.
-  ```
-  $ docker cp JPetStore/jpetstore.sql /docker-entrypoint-initdb.d
-  ```
-
-The second one is to simply run a mysql cmd and stdin the dump .sql file, as below.
-This is the recommended way:
+To do this, run a mysql cmd and stdin the dump .sql file:
   ```
   $ docker exec -i myjpetstore-db mysql -u jpetstore -pjpetstore -D jpetstore < JPetStore/jpetstore.sql
   ```
 
-- Troubleshoot
+### Troubleshoot
 
-If somethign goes wrong, run a bash process in the container to debug. Dont' expect much as mysql image is really minimalistic and purposely lacks of almost every command that you can think of:
+Exec bash to get into the container and do debugging:
 
   ```
   $ docker exec -it myjpetstore-mysql bash
   ```
-
