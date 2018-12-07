@@ -32,12 +32,12 @@ Run Docker Image
   $ docker run \
         -p 8080:8080 \
         --name mypetstore \
-	-e MYPET_DBHOST=db \
-	-e MYPET_DBPORT=3306 \
-	-e MYPET_DATABASE=jpetstore \
-	-e MYPET_USERNAME=jpetstore \
-	-e MYPET_PASSWD=jpetstore \
-	myjpetstore
+        -e MYPET_DBHOST=db \
+        -e MYPET_DBPORT=3306 \
+        -e MYPET_DATABASE=jpetstore \
+        -e MYPET_USERNAME=jpetstore \
+        -e MYPET_PASSWD=jpetstore \
+        myjpetstore
   ```
 
 ### Dependencies
@@ -61,14 +61,14 @@ This will run the mysqld in the container, create the database 'jpetstore, grant
 
   ```
   $ docker run -d \
-	-p 3306:3306 \
-	--name myjpetstore-db \
-	-e MYSQL_DATABASE=jpetstore \
-	-e MYSQL_USER=jpetstore \
-	-e MYSQL_PASSWORD=jpetstore \
-	-e MYSQL_ROOT_PASSWORD=myrootpwd
-	-v /opt/mysql-datadir:/var/lib/mysql \
-	mysql:5.5
+        -p 3306:3306 \
+        --name myjpetstore-db \
+        -e MYSQL_DATABASE=jpetstore \
+        -e MYSQL_USER=jpetstore \
+        -e MYSQL_PASSWORD=jpetstore \
+        -e MYSQL_ROOT_PASSWORD=myrootpwd
+        -v /opt/mysql-datadir:/var/lib/mysql \
+        mysql:5.5
   ```
 
 ### Initial Setup
